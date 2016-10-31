@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bootstrap 101 Template</title>
+
+  </head>
+  <body>
+  <table class="table table-striped">
+  {% for item in posts %}
+
+
+  <tr><td>{{ item.id }}</td><td>{{ item.text }}</td></tr>
+  
+
+  {% endfor %}
+
+  </table>    
+
+  
+  </body>
+</html>
+
+#где проводить обработку данных: server или template: на уровне темплейта

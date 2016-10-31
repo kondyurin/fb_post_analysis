@@ -1,20 +1,14 @@
-from flask import Flask
-from db import db_session, Messages
+from flask import Flask, render_template
+from db import db_session, Message
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    posts = db_session.query(Messages).all()
-    result = ''
+    posts = db_session.query(Message).all()
+    print(posts)
 
-    result += "<table border=1>"
-    for item in posts:
-        if item.message:
-            result += '<tr><td>{}</td><td>{}</td><td>{}</td></tr>'.format(item.id, item.updated_time, item.message)
-            
-    result += "</table>"
-    return result
+    return render_template('index.html', posts=posts)
 
 if __name__ ==  '__main__':
     app.run(port = 5020, debug = True)
