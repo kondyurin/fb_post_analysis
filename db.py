@@ -17,10 +17,6 @@ class User(Base):
     name = Column(String(50))
     message = relationship('Message', backref = 'author')
 
-    # def __init__(self, fb_id = None, name = None):
-    #     self.fb_id = fb_id
-    #     self.name = name
-
     def __repr__(self):
         return '<User {} {}>'.format(self.fb_id, self.name)
 
@@ -32,14 +28,8 @@ class Message(Base):
     updated_time = Column(DateTime)
     text = Column(Text)
 
-    # def __init__(self, fb_id=None, updated_time=None, text=None):
-    #     self.fb_id = fb_id
-    #     self.updated_time = updated_time
-    #     self.text = text
-    #     self.user_id = user_id
-
     def __repr__(self):
-        return '<Message {} {}>'.format(self.fb_id, self.updated_time, self.text)
+        return '<Message {} {} {}>'.format(self.fb_id, self.updated_time, self.text)
 
 
 if __name__ == "__main__":

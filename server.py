@@ -6,7 +6,6 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     posts = db_session.query(Message).all()
-    print(posts)
 
     return render_template('index.html', posts=posts)
 
