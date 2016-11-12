@@ -9,24 +9,17 @@
 
   </head>
   <body>
+
+<form>
+  <textarea class="form-control" rows="3" name="user_id"></textarea>
+  <input type="submit" value="Фильтровать">
+</form>
   <table class="table table-striped">
-  <!--{{% for item in posts %}
 
-  <tr><td>{{ item.id }}</td><td>{{ item.text }}</td></tr>
-  
-
-  {% endfor %}-->
-
-  <select class="form-control">
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-  </select>
 
   </table>    
 
+{{posts}}
   
   </body>
 </html>
