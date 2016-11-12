@@ -26,11 +26,13 @@ class Message(Base):
     fb_id = Column(Integer)
     user_id = Column(Integer, ForeignKey('user.id'))
     updated_time = Column(DateTime)
+    created_time = Column(DateTime)
     text = Column(Text)
 
     def __repr__(self):
-        return '<Message {} {} {}>'.format(self.fb_id, self.updated_time, self.text)
+        return '<Message {} {} {}>'.format(self.fb_id, self.updated_time, self.created_time, self.text)
 
 
 if __name__ == "__main__":
     Base.metadata.create_all(bind=engine)
+    print('DB successfully created!')
