@@ -3,6 +3,7 @@ import requests
 import datetime 
 from settings import access_token
 from db import db_session, Message, User
+import img
 
 page_id = '509679185734909' #id группы FB
 post_limit = 100 #кол-во загружаемых постов
