@@ -2,8 +2,7 @@ import json
 import requests
 import datetime 
 from settings import access_token
-from db import db_session, Message, User
-import img
+from db import db_session, Message, User, Image
 
 page_id = '509679185734909' #id группы FB
 post_limit = 100 #кол-во загружаемых постов
@@ -33,6 +32,7 @@ def add_post_to_db():
             message_data['created_time'] = datetime.datetime.strptime(message_data['created_time'], '%Y-%m-%dT%H:%M:%S+%f')
             # создаем экземпляр класса Message с именованными аргументами, которые необходимо заполнить в БД
             message_result = Message(author = user, fb_id = message_data['id'], updated_time = message_data.get('updated_time', ''), created_time = message_data.get('created_time', ''), text = message_data.get('message', ''))
+
             fb_id_arg = message_data['id']
             text_arg = message_data.get('text')
             # получаем список id постов уже имеющихся в базе
@@ -40,6 +40,7 @@ def add_post_to_db():
             # делаем проверку на пустые строки в поле text
             empty_text = db_session.query(Message).filter(Message.text == text_arg).all()
             # проверяем наличие поста в БД и в случае отсутствия добавляем в базу
+
             if not id_in_db or empty_text:
                 db_session.add(message_result)
             else:

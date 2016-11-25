@@ -25,6 +25,7 @@ class Message(Base):
     id = Column(Integer, primary_key=True)
     fb_id = Column(Integer)
     user_id = Column(Integer, ForeignKey('user.id'))
+    image = relationship('Image', backref = 'message')
     updated_time = Column(DateTime)
     created_time = Column(DateTime)
     text = Column(Text)
@@ -32,6 +33,14 @@ class Message(Base):
     def __repr__(self):
         return '<Message {} {} {}>'.format(self.fb_id, self.updated_time, self.created_time, self.text)
 
+class Image(Base):
+    __tablename__ = 'image'
+    id = Column(Integer, primary_key = True)
+    src = Column(String)
+    message_id = Column(Integer, ForeignKey('message.id'))
+
+    def __repr__(self):
+        return '<Message {} {} {}>'.format(self.src)    
 
 if __name__ == "__main__":
     Base.metadata.create_all(bind=engine)
