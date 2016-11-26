@@ -82,6 +82,12 @@
     <table>
       <tr>
         <td>
+          <b>Станция метро:</b>
+        </td>
+        <td>
+          &nbsp;
+        </td>
+        <td>
           <form>
           <div id="dialog_id">
             <select class="form-control" name="text" id="metro_station" onChange="selectChanges(this, value);">
@@ -98,17 +104,24 @@
             <button type="submit" class="btn btn-primary">Фильтровать</button></br>
         </td>
           </form>
-
+      </tr>
+    </table>
+    </br>
+    <table>
+      <tr>
+        <td>
+          <p><b>Постов в базе:</b> {{posts_count}} </p>
+          <p><b>Дата последнего обновления базы: </b> {{db_time_update|string()}}  </p>
+        </td>
       </tr>
     </table>
     </br>
     <div class="row">
     {%for row in posts[-16:]%}
-      <div class="col-sm-6 col-md-3">
+      <div class="col-md-5">
         <div class="thumbnail">
-          <img src="">
           <div class="caption">
-            <h4>
+            <h4>id: {{row.id}}
                 <!-- <script type="text/javascript">
                   var selectedStation = $('#metro_station option:selected').val();
                   document.write(selectedStation);
@@ -116,6 +129,7 @@
             </h4>
             <p>{{row.text[:250]}}</p>
             <p><b>Дата создания:</b> {{row.created_time}}</p>
+            <p><b>Дата изменения:</b> {{row.updated_time}}</p>
             <p><b>Автор:</b> {{row.author}}</p>
             <a href="#" class="btn btn-default" role="button">Подробнее</a></p>
           </div>
@@ -124,14 +138,6 @@
     {%endfor%}
     </div>
   </div>
-      
-<!-- <div id="dialog_id">
-    <select name="vlad" onChange="selectChanges(this, value);">
-        <option>Value1</option>
-        <option>Value2</option>
-        <option>Value3</option>
-    </select>
-</div> -->
 
     <script type="text/javascript">
     var selects = $("#dialog_id select");
@@ -155,9 +161,6 @@
         }
     }
     </script>
-
-
-
 
   </body>
 </html>

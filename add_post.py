@@ -47,7 +47,7 @@ def add_post_to_db():
                 next_group_page = False
             num_posts += 1
             if num_posts % 100 == 0:
-                print('{} done at {}, created time: {}'.format(num_posts, datetime.datetime.now(), message_data['created_time']))
+                print('{} done at {}, created time: {}'.format(num_posts, start_time.time, message_data['created_time']))
         if 'paging' in data:
             r = requests.get(data['paging']['next'])
             data = r.json()
@@ -55,7 +55,7 @@ def add_post_to_db():
         else:
             next_group_page = False
 
-    return 'OK'
+    return start_time
 
 if __name__ ==  '__main__':
     add_post_to_db()
