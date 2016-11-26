@@ -16,5 +16,13 @@ def index():
 
     return render_template('index.html', posts=posts.all(), metro_station=find_metro_intersection(), db_time_update=add_post_to_db(), posts_count=posts_count)
 
+@app.route("/objects")
+def index():
+    return render_template('objects.html')
+
+@app.route("/stat")
+def index():
+    return render_template('stat.html')
+
 if __name__ ==  '__main__':
     app.run(port = 5020, debug = True)
