@@ -25,7 +25,7 @@ class Message(Base):
     id = Column(Integer, primary_key=True)
     fb_id = Column(Integer)
     user_id = Column(Integer, ForeignKey('user.id'))
-    image = relationship('Image', backref = 'message')
+    images = relationship('Image', backref = 'message')
     updated_time = Column(DateTime)
     created_time = Column(DateTime)
     text = Column(Text)

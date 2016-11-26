@@ -130,8 +130,11 @@
             <p>{{row.text[:250]}}</p>
             <p><b>Дата создания:</b> {{row.created_time}}</p>
             <p><b>Дата изменения:</b> {{row.updated_time}}</p>
-            <p><b>Автор:</b> {{row.author}}</p>
+            <p><b>Автор:</b> {{row.author.name}}</p>
             <a href="#" class="btn btn-default" role="button">Подробнее</a></p>
+            {% for image in row.images %}
+              <img src="{{image.src}}">
+            {% endfor %}
           </div>
         </div>
       </div>
