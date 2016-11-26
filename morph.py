@@ -75,7 +75,7 @@ def find_metro_regex():
 # get_word_from_db()
 # get_word_lexeme('сдать')
 # find_metro_intersection()
-find_type_of_message()
+# find_type_of_message()
 # first_word_dict_freq()
 # get_message_text()
 
