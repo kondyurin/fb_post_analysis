@@ -1,1 +1,2 @@
-# fb_post_analysis
+# Анализ постов в Facebook
+Проект, реализованный в рамках курса Learn Python.
